@@ -5,17 +5,21 @@ import { ProgrammeTab } from "@/components/tabs/ProgrammeTab";
 import { NutritionTab } from "@/components/tabs/NutritionTab";
 import { SupplementsTab } from "@/components/tabs/SupplementsTab";
 import { ProgressionTab } from "@/components/tabs/ProgressionTab";
-import { LayoutDashboard, Dumbbell, UtensilsCrossed, Pill, TrendingUp } from "lucide-react";
+import { SuiviTab } from "@/components/tabs/SuiviTab";
+import { SeanceTab } from "@/components/tabs/SeanceTab";
+import { LayoutDashboard, Dumbbell, UtensilsCrossed, Pill, TrendingUp, Scale, PlayCircle } from "lucide-react";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   const tabs = [
-    { value: "dashboard", label: "Tableau de bord", icon: LayoutDashboard },
+    { value: "dashboard", label: "Accueil", icon: LayoutDashboard },
+    { value: "seance", label: "Séance", icon: PlayCircle },
     { value: "programme", label: "Programme", icon: Dumbbell },
+    { value: "suivi", label: "Suivi", icon: Scale },
     { value: "nutrition", label: "Nutrition", icon: UtensilsCrossed },
     { value: "supplements", label: "Suppléments", icon: Pill },
-    { value: "progression", label: "Progression", icon: TrendingUp },
+    { value: "progression", label: "Conseils", icon: TrendingUp },
   ];
 
   return (
@@ -65,8 +69,14 @@ const Index = () => {
           <TabsContent value="dashboard" className="mt-0">
             <DashboardTab />
           </TabsContent>
+          <TabsContent value="seance" className="mt-0">
+            <SeanceTab />
+          </TabsContent>
           <TabsContent value="programme" className="mt-0">
             <ProgrammeTab />
+          </TabsContent>
+          <TabsContent value="suivi" className="mt-0">
+            <SuiviTab />
           </TabsContent>
           <TabsContent value="nutrition" className="mt-0">
             <NutritionTab />
