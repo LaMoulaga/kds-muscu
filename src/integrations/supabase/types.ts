@@ -14,7 +14,116 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      session_exercises: {
+        Row: {
+          actual_reps: string | null
+          actual_sets: number | null
+          actual_weight: string | null
+          completed: boolean | null
+          created_at: string
+          exercise_name: string
+          id: string
+          notes: string | null
+          planned_reps: string
+          planned_sets: number
+          planned_weight: string
+          session_id: string
+        }
+        Insert: {
+          actual_reps?: string | null
+          actual_sets?: number | null
+          actual_weight?: string | null
+          completed?: boolean | null
+          created_at?: string
+          exercise_name: string
+          id?: string
+          notes?: string | null
+          planned_reps: string
+          planned_sets: number
+          planned_weight: string
+          session_id: string
+        }
+        Update: {
+          actual_reps?: string | null
+          actual_sets?: number | null
+          actual_weight?: string | null
+          completed?: boolean | null
+          created_at?: string
+          exercise_name?: string
+          id?: string
+          notes?: string | null
+          planned_reps?: string
+          planned_sets?: number
+          planned_weight?: string
+          session_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "session_exercises_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "workout_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      weight_entries: {
+        Row: {
+          created_at: string
+          date: string
+          id: string
+          notes: string | null
+          weight: number
+        }
+        Insert: {
+          created_at?: string
+          date?: string
+          id?: string
+          notes?: string | null
+          weight: number
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          id?: string
+          notes?: string | null
+          weight?: number
+        }
+        Relationships: []
+      }
+      workout_sessions: {
+        Row: {
+          completed: boolean | null
+          created_at: string
+          day_name: string
+          duration_minutes: number | null
+          id: string
+          notes: string | null
+          session_date: string
+          workout_title: string
+        }
+        Insert: {
+          completed?: boolean | null
+          created_at?: string
+          day_name: string
+          duration_minutes?: number | null
+          id?: string
+          notes?: string | null
+          session_date?: string
+          workout_title: string
+        }
+        Update: {
+          completed?: boolean | null
+          created_at?: string
+          day_name?: string
+          duration_minutes?: number | null
+          id?: string
+          notes?: string | null
+          session_date?: string
+          workout_title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
