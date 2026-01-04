@@ -3,10 +3,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { workoutDays } from "@/data/workoutData";
-import { Play, Check, Clock, Dumbbell, Save, Trash2, ChevronDown, ChevronUp } from "lucide-react";
+import { RestTimer } from "@/components/RestTimer";
+import { Play, Check, Clock, Dumbbell, Trash2, ChevronDown, ChevronUp } from "lucide-react";
 import { format, parseISO } from "date-fns";
 import { fr } from "date-fns/locale";
 import { cn } from "@/lib/utils";
@@ -222,7 +222,10 @@ export function SeanceTab() {
         )}
       </div>
 
-      {/* Active Session Exercises */}
+      {/* Rest Timer - visible during active session */}
+      {activeSession && !activeSession.completed && (
+        <RestTimer defaultDuration={90} />
+      )}
       {activeSession && activeSession.session_exercises && (
         <div className="space-y-4">
           <h3 className="font-display text-2xl tracking-wide">📋 EXERCICES À FAIRE</h3>
