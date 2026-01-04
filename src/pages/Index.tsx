@@ -7,7 +7,9 @@ import { SupplementsTab } from "@/components/tabs/SupplementsTab";
 import { ProgressionTab } from "@/components/tabs/ProgressionTab";
 import { SuiviTab } from "@/components/tabs/SuiviTab";
 import { SeanceTab } from "@/components/tabs/SeanceTab";
-import { LayoutDashboard, Dumbbell, UtensilsCrossed, Pill, TrendingUp, Scale, PlayCircle } from "lucide-react";
+import { PhotosTab } from "@/components/tabs/PhotosTab";
+import { SettingsTab } from "@/components/tabs/SettingsTab";
+import { LayoutDashboard, Dumbbell, UtensilsCrossed, Pill, TrendingUp, Scale, PlayCircle, Camera, Settings } from "lucide-react";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -17,9 +19,11 @@ const Index = () => {
     { value: "seance", label: "Séance", icon: PlayCircle },
     { value: "programme", label: "Programme", icon: Dumbbell },
     { value: "suivi", label: "Suivi", icon: Scale },
+    { value: "photos", label: "Photos", icon: Camera },
     { value: "nutrition", label: "Nutrition", icon: UtensilsCrossed },
     { value: "supplements", label: "Suppléments", icon: Pill },
     { value: "progression", label: "Conseils", icon: TrendingUp },
+    { value: "settings", label: "Paramètres", icon: Settings },
   ];
 
   return (
@@ -78,6 +82,9 @@ const Index = () => {
           <TabsContent value="suivi" className="mt-0">
             <SuiviTab />
           </TabsContent>
+          <TabsContent value="photos" className="mt-0">
+            <PhotosTab />
+          </TabsContent>
           <TabsContent value="nutrition" className="mt-0">
             <NutritionTab />
           </TabsContent>
@@ -86,6 +93,9 @@ const Index = () => {
           </TabsContent>
           <TabsContent value="progression" className="mt-0">
             <ProgressionTab />
+          </TabsContent>
+          <TabsContent value="settings" className="mt-0">
+            <SettingsTab />
           </TabsContent>
         </Tabs>
       </main>
