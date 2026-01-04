@@ -49,7 +49,7 @@ const Index = () => {
       <main className="container py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
           {/* Tab Navigation */}
-          <TabsList className="w-full flex bg-muted/30 p-1.5 rounded-2xl overflow-x-auto">
+          <TabsList className="w-full flex flex-wrap sm:flex-nowrap bg-muted/30 p-1.5 rounded-2xl gap-1">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
